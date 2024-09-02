@@ -5,7 +5,7 @@ import AuthRouters from "./AuthRouters";
 
 
 export default function App() {
-    const user = null; 
+    const user = "null"; 
   return (
   <>
 

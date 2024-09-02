@@ -1,20 +1,29 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Home from "../pages/Home";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
 
-const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
 export default function AuthRouters(){
     return(
-        <Stack.Navigator>
+        <NavigationContainer>
+
+        <Tab.Navigator>
         
-        <Stack.Screen
+        <Tab.Screen
           name="Home"
           component={Home}
           options={{title: 'Home'}}
         />
-      
-      </Stack.Navigator>
+        <Tab.Screen
+          name="Login"
+          component={Login}
+          options={{title: 'Login'}}
+        />
+
+      </Tab.Navigator>
+      </NavigationContainer>
     )
 }
