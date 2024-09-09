@@ -1,17 +1,13 @@
-import AppRouters from "./AppRouters";
-import AuthRouters from "./AuthRouters";
+import { useContext } from 'react';
+import AppRouters from './AppRouters';
+import AuthRouters from './AuthRouters';
+import AuthContext from '../contexts/auth';
 
-
-
-
-export default function App() {
-    const user = "null"; 
+export default function Routers() {
+  const {signed} = useContext(AuthContext)
   return (
-  <>
-
-    {user == null ? <AppRouters />: <AuthRouters/>}
-    
-  </>
-
+    <>
+        { signed ? <AuthRouters /> : <AppRouters /> }     
+    </>
   );
 }

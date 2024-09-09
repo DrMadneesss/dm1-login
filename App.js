@@ -1,15 +1,13 @@
-import {NavigationContainer} from '@react-navigation/native';
-import AppRouters from './src/routers/AppRouters';
-
-
+import { NavigationContainer } from '@react-navigation/native';
+import Routers from './src/routers/routers';
+import AuthContext from './src/contexts/auth';
 
 export default function App() {
   return (
-  <>
     <NavigationContainer>
-      <AppRouters />
+      <AuthContext.Provider value={{signed:true, token:"asdsadawdw awadsdwa", email:"aula@fatectp.edu.br"}}>
+        <Routers />
+      </AuthContext.Provider>
     </NavigationContainer>
-  </>
-
   );
 }
