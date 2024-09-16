@@ -7,7 +7,7 @@ const AuthContext = createContext({});
 export const AuthProvider = ({children}) => {
     return (
         <AuthContext.Provider value={{
-            signed: true,
+            signed: false,
             token: "asdsadawdw awadsdwa",
             email: "aula@fatectp.edu.br"
         }}>

@@ -1,23 +1,24 @@
 import { StatusBar } from "expo-status-bar";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableOpacity,
-  TextInput,
-} from "react-native";
+import {StyleSheet, Text, View, Image, TouchableOpacity, TextInput,} from "react-native";
+import { LoginUsuario } from "../services/auth-firebase";
 
 const icon = require("../../assets/favicon.png");
 
 const Login = ({navigation}) => {
- 
+
+ const onClickEntrar = async () => {
+  const userLogin = await LoginUsuario();
+  navigation.navigate('Home', {name:'Home'})
+ }
   
+const onClickRegistrar = ()=>{
+  navigation.navigate('Registro', {name:'registro'})
+}
   return (
     <View style={styles.container}>
       <Image style={styles.image} source={icon} />
       <View style={styles.body}>
-        <Text style={styles.title}>Login 2608</Text>
+        <Text style={styles.title}>Login 1609</Text>
         <View style={styles.areaInput}>
           <TextInput
             style={styles.textField}
@@ -31,9 +32,7 @@ const Login = ({navigation}) => {
             secureTextEntry
           />
           <TouchableOpacity style={styles.button}
-             onPress={() =>
-                navigation.navigate('Home', {name: 'home'})
-    }
+             onPress={onClickEntrar}
            >
             <Text style={(styles.buttonText, { color: "#fff" })}>
               Acessar
